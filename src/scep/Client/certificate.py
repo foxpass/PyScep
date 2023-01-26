@@ -84,7 +84,9 @@ class Certificate:
 
     @property
     def key_usage(self):
-        return self._certificate.key_usage_value.native
+        if self._certificate.key_usage_value is not None:
+            return self._certificate.key_usage_value.native
+        return None
 
     @property
     def is_ca(self):
